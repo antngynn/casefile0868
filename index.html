@@ -254,11 +254,11 @@ body.lock-mode { overflow:hidden; }
     <section class="dossier-card">
       <div class="eyebrow">CASE FILE 0868</div>
       <h1>THE NIGHT<br><span>WATCHMAN</span></h1>
-      <p class="subtitle">7 COMMON QUESTIONS ABOUT<br>WORKPLACE ROMANCE</p>
+      <p class="subtitle">CLASSIFIED DOCUMENT<br>AUTHORIZED ACCESS ONLY</p>
 
       <div class="divider"><i></i></div>
 
-      <p class="instruction">THE FILE IS SEALED.<br>ENTER THE PASSWORD TO CONTINUE.</p>
+      <p class="instruction">THE FILE IS SEALED.<br>ENTER THE ACCESS CODE TO CONTINUE.</p>
 
       <form id="unlockForm" class="password-form">
         <div class="input-wrap">
@@ -418,7 +418,7 @@ body.lock-mode { overflow:hidden; }
 </div>
 
 <script>
-const CORRECT_PASSWORD = "workplaceromance";
+const CORRECT_PASSWORDS = ["workplaceromance", "romanceworkplace"];
 
 function normalizePassword(value) {
   // Ignore capitalization, spaces, tabs, hyphens, punctuation, etc.
@@ -440,7 +440,7 @@ form.addEventListener("submit", function(e) {
 
   const entered = normalizePassword(input.value);
 
-  if (entered === CORRECT_PASSWORD) {
+  if (CORRECT_PASSWORDS.includes(entered)) {
     error.classList.remove("show");
     app.style.opacity = "0";
     app.style.transition = "opacity .35s ease";
